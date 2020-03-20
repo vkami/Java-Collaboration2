@@ -68,7 +68,11 @@ public class PlateNumbers {
 
         for (int i =0; i < 5; i++){
             System.out.println(is);
-            appendPlateNumber(is.require());
+            try {
+                appendPlateNumber(is.require(),f);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -98,11 +102,12 @@ public class PlateNumbers {
 
     }
 
-    static void appendPlateNumber(PlateNumber pn) throws IOException {
+    static void appendPlateNumber(PlateNumber pn,File f) throws IOException {
         BufferedWriter bw = new BufferedWriter(
-                new FileWriter("")); // ide kell egy elérési út!
+                new FileWriter(f)); // ide kell egy elérési út!
+        String s=pn.toString();
         bw.newLine();                                         // ús sort kezd.
-        bw.write(pn);
+        bw.write(s);
         bw.close();
     }
 

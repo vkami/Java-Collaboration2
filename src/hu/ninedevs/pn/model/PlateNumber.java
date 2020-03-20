@@ -25,7 +25,7 @@ public class PlateNumber {
     //teljes rendszám lekérdezés:
     public String getFullPlateNumber(){
         String fpn;
-        fpn = this.letterPart + " - " + this.numberPart;
+        fpn = this.letterPart + "-" + this.numberPart;
 
         return fpn;
     }

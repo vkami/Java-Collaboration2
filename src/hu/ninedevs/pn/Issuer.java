@@ -21,7 +21,22 @@ public class Issuer {
 
     }
     public PlateNumber require(){
-        PlateNumber rendszam=new PlateNumber();
+        PlateNumber rendszam;
+        Generator ujRendszam=new Generator();
+        rendszam=ellenorzes(ujRendszam);
+        kiadottRendszamok[kiadottRendszamok.length]=rendszam;
         return rendszam;
+    }
+    public PlateNumber ellenorzes(Generator ujRendszam){
+        String betuk=ujRendszam[0];
+        String szamok=ujRendszam[1];
+            PlateNumber ell=new PlateNumber(betuk,szamok);
+        for(int i=0;i<kiadottRendszamok.length;i++){
+            if(ell.equals(kiadottRendszamok[i])){
+                ujRendszam=new Generator();
+                ellenorzes(ujRendszam);
+            }
+            return ell;
+        }
     }
 }

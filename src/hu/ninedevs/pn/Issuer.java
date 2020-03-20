@@ -2,6 +2,8 @@ package hu.ninedevs.pn;
 
 import hu.ninedevs.pn.model.PlateNumber;
 
+import java.util.Arrays;
+
 /**
  * FONTOS! Ezt a leírást NE MÓDOSÍTSD, NE TÖRÖLD KI semmilyen részletét a munka során!
  *
@@ -16,22 +18,24 @@ import hu.ninedevs.pn.model.PlateNumber;
     - ha megfelelő rendszámot kapott, akkor tárolja el a kiadottRendszámok tömbbben is
  */
 public class Issuer {
-    private PlateNumber[] kiadottRendszamok;
+    private PlateNumber[] kiadottRendszamok=new PlateNumber[]{};
 
     public Issuer(){
     }
 
-    public Issuer(PlateNumber[] kiadottRendszamok){
-        this.kiadottRendszamok=kiadottRendszamok;
+    public Issuer(PlateNumber[] regiRendszamok){
+
     }
 
 
     public PlateNumber require(){
+        int n=kiadottRendszamok.length;
         PlateNumber rendszam;
         Generator ujRendszam=new Generator();
         String[] sRendszam=ujRendszam.genPlateNumber();
         rendszam=ellenorzes(sRendszam);
-        kiadottRendszamok[kiadottRendszamok.length]=rendszam;
+        kiadottRendszamok = Arrays.copyOf(kiadottRendszamok,n+1);
+        kiadottRendszamok[n]=rendszam;
         return rendszam;
     }
     public PlateNumber ellenorzes(String[] sRendszam){

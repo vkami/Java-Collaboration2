@@ -47,6 +47,7 @@ package hu.ninedevs.pn;
 import hu.ninedevs.pn.model.PlateNumber;
 
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * FONTOS! Ezt a leírást NE MÓDOSÍTSD, NE TÖRÖLD KI semmilyen részletét a munka során!
@@ -83,13 +84,14 @@ public class PlateNumbers {
             FileReader fr=new FileReader(f);
             BufferedReader br= new BufferedReader(fr);
             String egysor;
-            int n=0;
+            int n=1;
             while((egysor=br.readLine())!=null){
                 String[] reszek=egysor.split("-");
                 String betuk=reszek[0];
                 String szamok=reszek[1];
                 PlateNumber rendszam= new PlateNumber(betuk,szamok);
-                regiRendszamok[n]=rendszam;
+                regiRendszamok = Arrays.copyOf(regiRendszamok,n);
+                regiRendszamok[n-1]=rendszam;
                 n++;
             }
             br.close();

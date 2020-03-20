@@ -23,9 +23,9 @@ public class PlateNumber {
     }
 
     //teljes rendszám lekérdezés:
-    public String getFullPlateNumber(String letterPart, String numberPart){
+    public String getFullPlateNumber(){
         String fpn;
-        fpn = letterPart + " - " + numberPart;
+        fpn = this.letterPart + " - " + this.numberPart;
 
         return fpn;
     }
@@ -33,6 +33,6 @@ public class PlateNumber {
     //toString:
     @Override
     public String toString() {
-        return "Rendszám: " + numberPart + " - " + letterPart;
+        return getFullPlateNumber();
     }
 }

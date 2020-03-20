@@ -64,7 +64,6 @@ public class PlateNumbers {
         regiRendszamok=readFromFile(f);
 
 
-
         Issuer is = new Issuer(regiRendszamok);
 
         for (int i =0; i < 5; i++){

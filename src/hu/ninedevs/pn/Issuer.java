@@ -17,9 +17,15 @@ import hu.ninedevs.pn.model.PlateNumber;
  */
 public class Issuer {
     private PlateNumber[] kiadottRendszamok;
-    public Issuer(){
 
+    public Issuer(){
     }
+
+    public Issuer(PlateNumber[] kiadottRendszamok){
+        this.kiadottRendszamok=kiadottRendszamok;
+    }
+
+
     public PlateNumber require(){
         PlateNumber rendszam;
         Generator ujRendszam=new Generator();

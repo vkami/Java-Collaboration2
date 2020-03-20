@@ -53,4 +53,8 @@ package hu.ninedevs.pn;
  *  - igényelj 5 rendszámot az Issuer-től és írasd ki őket;
  */
 public class PlateNumbers {
+
+    public static void main(String[] args) {
+
+    }
 }

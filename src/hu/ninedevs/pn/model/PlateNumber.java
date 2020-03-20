@@ -12,4 +12,27 @@ package hu.ninedevs.pn.model;
  * - a toString() metódust is írd meg: adja vissza ugyanazt, mint a getFullPlateNumber(), természetesen kódduplikáció nélkül
  */
 public class PlateNumber {
+
+    String letterPart;
+    String numberPart;
+
+    //konstruktor:
+    public PlateNumber(String letterPart, String numberPart){
+        this.letterPart = letterPart;
+        this.numberPart = numberPart;
+    }
+
+    //teljes rendszám lekérdezés:
+    public String getFullPlateNumber(String letterPart, String numberPart){
+        String fpn;
+        fpn = letterPart + " - " + numberPart;
+
+        return fpn;
+    }
+
+    //toString:
+    @Override
+    public String toString() {
+        return "Rendszám: " + numberPart + " - " + letterPart;
+    }
 }

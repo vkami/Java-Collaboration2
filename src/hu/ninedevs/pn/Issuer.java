@@ -24,7 +24,7 @@ public class Issuer {
     }
 
     public Issuer(PlateNumber[] regiRendszamok){
-
+         kiadottRendszamok=regiRendszamok;
     }
 
 

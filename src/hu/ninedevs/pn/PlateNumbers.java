@@ -56,5 +56,11 @@ public class PlateNumbers {
 
     public static void main(String[] args) {
 
+        Issuer is = new Issuer();
+
+        for (int i =0; i < 5; i++){
+            System.out.println(is.);
+        }
+
     }
 }

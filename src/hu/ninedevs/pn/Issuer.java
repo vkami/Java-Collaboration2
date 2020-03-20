@@ -23,20 +23,23 @@ public class Issuer {
     public PlateNumber require(){
         PlateNumber rendszam;
         Generator ujRendszam=new Generator();
-        rendszam=ellenorzes(ujRendszam);
+        String[] sRendszam=ujRendszam.genPlateNumber();
+        rendszam=ellenorzes(sRendszam);
         kiadottRendszamok[kiadottRendszamok.length]=rendszam;
         return rendszam;
     }
-    public PlateNumber ellenorzes(Generator ujRendszam){
-        String betuk=ujRendszam[0];
-        String szamok=ujRendszam[1];
-            PlateNumber ell=new PlateNumber(betuk,szamok);
-        for(int i=0;i<kiadottRendszamok.length;i++){
-            if(ell.equals(kiadottRendszamok[i])){
-                ujRendszam=new Generator();
-                ellenorzes(ujRendszam);
+    public PlateNumber ellenorzes(String[] sRendszam){
+        Generator ujRendszam=new Generator();
+        String betuk=sRendszam[0];
+        String szamok=sRendszam[1];
+        PlateNumber ell=new PlateNumber(betuk,szamok);
+        for(int i=0;i<kiadottRendszamok.length;i++) {
+            if (ell.equals(kiadottRendszamok[i])) {
+                sRendszam = ujRendszam.genPlateNumber();
+                ellenorzes(sRendszam);
             }
+        }
             return ell;
         }
     }
-}
+

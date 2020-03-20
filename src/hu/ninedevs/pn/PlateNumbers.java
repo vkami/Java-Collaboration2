@@ -61,20 +61,22 @@ public class PlateNumbers {
 
     public static void main(String[] args) {
         PlateNumber[] regiRendszamok=new PlateNumber[]{};
+        PlateNumber[] rendszamok;
+        PlateNumber pn;
         File f = new File("src/rendszamok.txt");
         regiRendszamok=readFromFile(f);
-
-
         Issuer is = new Issuer(regiRendszamok);
 
         for (int i =0; i < 5; i++){
-            System.out.println(is);
+            pn=is.require();
             try {
-                appendPlateNumber(is.require(),f);
+                appendPlateNumber(pn,f);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        rendszamok=is.getKiadottRendszamok();
+        System.out.println("tárolt rendszámok: "+Arrays.toString(rendszamok));
 
     }
     static PlateNumber[] readFromFile(File f) {
@@ -106,10 +108,10 @@ public class PlateNumbers {
 
     static void appendPlateNumber(PlateNumber pn,File f) throws IOException {
         BufferedWriter bw = new BufferedWriter(
-                new FileWriter(f)); // ide kell egy elérési út!
+                new FileWriter(f,true)); // ide kell egy elérési út!
         String s=pn.toString();
-        bw.newLine();                                         // ús sort kezd.
         bw.write(s);
+        bw.newLine();                                         // ús sort kezd.
         bw.close();
     }
 

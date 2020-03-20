@@ -36,7 +36,7 @@ public class Issuer {
         for(int i=0;i<kiadottRendszamok.length;i++) {
             if (ell.equals(kiadottRendszamok[i])) {
                 sRendszam = ujRendszam.genPlateNumber();
-                ellenorzes(sRendszam);
+                ell=ellenorzes(sRendszam);
             }
         }
             return ell;

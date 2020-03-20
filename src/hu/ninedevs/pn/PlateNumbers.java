@@ -44,6 +44,10 @@ package hu.ninedevs.pn;
  *      A kezdéstől számított 1 óra.
  */
 
+import hu.ninedevs.pn.model.PlateNumber;
+
+import java.io.*;
+
 /**
  * FONTOS! Ezt a leírást NE MÓDOSÍTSD, NE TÖRÖLD KI semmilyen részletét a munka során!
  *
@@ -59,8 +63,18 @@ public class PlateNumbers {
         Issuer is = new Issuer();
 
         for (int i =0; i < 5; i++){
-            System.out.println(is.);
+            System.out.println(is.require());
+            appendPlateNumber(is.require());
         }
 
     }
+
+    static void appendPlateNumber(PlateNumber pn) throws IOException {
+        BufferedWriter bw = new BufferedWriter(
+                                new FileWriter("")); // ide kell egy elérési út!
+        bw.newLine();                                         // ús sort kezd.
+        bw.write(pn);
+        bw.close();
+    }
+
 }

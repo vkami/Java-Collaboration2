@@ -1,5 +1,7 @@
 package hu.ninedevs.pn;
 
+import hu.ninedevs.pn.model.PlateNumber;
+
 /**
  * FONTOS! Ezt a leírást NE MÓDOSÍTSD, NE TÖRÖLD KI semmilyen részletét a munka során!
  *
@@ -14,4 +16,12 @@ package hu.ninedevs.pn;
     - ha megfelelő rendszámot kapott, akkor tárolja el a kiadottRendszámok tömbbben is
  */
 public class Issuer {
+    private PlateNumber[] kiadottRendszamok;
+    public Issuer(){
+
+    }
+    public PlateNumber require(){
+        PlateNumber rendszam=new PlateNumber();
+        return rendszam;
+    }
 }

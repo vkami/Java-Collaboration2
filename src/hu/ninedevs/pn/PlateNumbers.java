@@ -59,22 +59,42 @@ import java.io.*;
 public class PlateNumbers {
 
     public static void main(String[] args) {
+        PlateNumber[] regiRendszamok=new PlateNumber[]{};
+        File f = new File("src/rendszamok.txt");
+        regiRendszamok=readFromFile(f);
 
-        Issuer is = new Issuer();
+
+
+        Issuer is = new Issuer(regiRendszamok);
 
         for (int i =0; i < 5; i++){
-            System.out.println(is.require());
-            appendPlateNumber(is.require());
+            System.out.println(is);
         }
 
     }
+    static PlateNumber[] readFromFile(File f) {
+        PlateNumber[] regiRendszamok=new PlateNumber[]{};
 
-    static void appendPlateNumber(PlateNumber pn) throws IOException {
-        BufferedWriter bw = new BufferedWriter(
-                                new FileWriter("")); // ide kell egy elérési út!
-        bw.newLine();                                         // ús sort kezd.
-        bw.write(pn);
-        bw.close();
+        try {
+            FileReader fr=new FileReader(f);
+            BufferedReader br= new BufferedReader(fr);
+            String egysor;
+            int n=0;
+            while((egysor=br.readLine())!=null){
+                String[] reszek=egysor.split("-");
+                String betuk=reszek[0];
+                String szamok=reszek[1];
+                PlateNumber rendszam= new PlateNumber(betuk,szamok);
+                regiRendszamok[n]=rendszam;
+                n++;
+            }
+            br.close();
+        } catch (FileNotFoundException efn) {
+            efn.printStackTrace();
+        } catch(IOException eio){eio.printStackTrace();}
+
+
+        return regiRendszamok;
+
     }
-
 }

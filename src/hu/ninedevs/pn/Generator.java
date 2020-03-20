@@ -1,5 +1,7 @@
 package hu.ninedevs.pn;
 
+import java.util.Random;
+
 /**
  *  FONTOS! Ezt a leírást NE MÓDOSÍTSD, NE TÖRÖLD KI semmilyen részletét a munka során!
  *
@@ -13,19 +15,15 @@ package hu.ninedevs.pn;
 public class Generator {
 
     public static String[] genPlateNumber(){
-        return new String[]{"ABC","123"};
+
+        String alphas="";
+        String nums="";
+        Random ran=new Random();
+
+        for (int n=0; n<3; n++) alphas+=(char)('A'+ran.nextInt(26));
+
+        for (int n=0; n<3; n++) nums+=ran.nextInt(10);
+
+        return new String[]{alphas,nums};
     }
-
-    public static String[] genPlateNumberBeta(){
-        return new String[]{"ABC","123"};
-    }
-
-
-    public static void main(String[] args) {
-
-
-
-    }
-
-
 }

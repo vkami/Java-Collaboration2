@@ -41,5 +41,9 @@ public class Issuer {
         }
             return ell;
         }
+
+    public PlateNumber[] getKiadottRendszamok() {
+        return kiadottRendszamok;
     }
+}
 

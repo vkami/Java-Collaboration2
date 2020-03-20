@@ -68,6 +68,7 @@ public class PlateNumbers {
 
         for (int i =0; i < 5; i++){
             System.out.println(is);
+            appendPlateNumber(is.require());
         }
 
     }
@@ -96,4 +97,13 @@ public class PlateNumbers {
         return regiRendszamok;
 
     }
+
+    static void appendPlateNumber(PlateNumber pn) throws IOException {
+        BufferedWriter bw = new BufferedWriter(
+                new FileWriter("")); // ide kell egy elérési út!
+        bw.newLine();                                         // ús sort kezd.
+        bw.write(pn);
+        bw.close();
+    }
+
 }

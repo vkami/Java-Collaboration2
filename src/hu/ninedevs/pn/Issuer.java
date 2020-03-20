@@ -39,10 +39,12 @@ public class Issuer {
         String betuk=sRendszam[0];
         String szamok=sRendszam[1];
         PlateNumber ell=new PlateNumber(betuk,szamok);
-        for(int i=0;i<kiadottRendszamok.length;i++) {
-            if (ell.equals(kiadottRendszamok[i])) {
-                sRendszam = ujRendszam.genPlateNumber();
-                ell=ellenorzes(sRendszam);
+        if((kiadottRendszamok.length)!=0) {
+            for (int i = 0; i < kiadottRendszamok.length; i++) {
+                if (ell.equals(kiadottRendszamok[i])) {
+                    sRendszam = ujRendszam.genPlateNumber();
+                    ell = ellenorzes(sRendszam);
+                }
             }
         }
             return ell;
